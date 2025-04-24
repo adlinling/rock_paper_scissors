@@ -46,6 +46,7 @@ function getHumanChoice(){
 function playRound(humanChoice, computerChoice){
 
     let playerchoice = humanChoice.toUpperCase();
+    let winner = "no winner";
 
     console.log("Player choice:" + playerchoice)
     console.log("Computer choice:" + computerChoice)
@@ -54,10 +55,10 @@ function playRound(humanChoice, computerChoice){
 
         if(playerchoice == "PAPER"){
             console.log("You win!  Paper beats rock.");
-            humanScore++;
+            winner = "human";
         }else if(playerchoice == "SCISSORS"){
             console.log("You lose!  Rock beats scissors.");
-            computerScore++;
+            winner = "computer";
         }else{
             console.log("Both of you chose rock");
         }
@@ -67,10 +68,10 @@ function playRound(humanChoice, computerChoice){
 
         if(playerchoice == "SCISSORS"){
             console.log("You win!  Scissors beats paper.");
-            humanScore++;
+            winner = "human";
         }else if(playerchoice == "ROCK"){
             console.log("You lose!  Paper beats rock.");
-            computerScore++;
+            winner = "computer";
         }else{
             console.log("Both of you chose paper");
         }
@@ -80,17 +81,19 @@ function playRound(humanChoice, computerChoice){
 
         if(playerchoice == "ROCK"){
             console.log("You win! Rock beats scissors.");
-            humanScore++;
+            winner = "human";
         }else if(playerchoice == "PAPER"){
             console.log("You lose!  Scissors beats paper.");
-            computerScore++;
+            winner = "computer";
         }else{
             console.log("Both of you chose scissors");
         }
         
     }
 
-    console.log("Scores\nHuman: " + humanScore + " Computer: " + computerScore);
+    //console.log("Scores\nHuman: " + humanScore + " Computer: " + computerScore);
+    console.log("Winner: " + winner);
+    return winner;
 }
 
 
