@@ -1,8 +1,5 @@
 //console.log("Hello World");
 
-let humanScore = 0;
-let computerScore = 0;
-
 
 function getComputerChoice(){
 
@@ -92,12 +89,48 @@ function playRound(humanChoice, computerChoice){
     }
 
     //console.log("Scores\nHuman: " + humanScore + " Computer: " + computerScore);
-    console.log("Winner: " + winner);
+    //console.log("Winner: " + winner);
     return winner;
 }
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+function playGame(){
+
+    const maxrounds = 5;
+    let round = 1;
+
+    let humanScore = 0;
+    let computerScore = 0;
+    let roundwinner;
+
+    while (round <= maxrounds) {
+
+        console.log("Round: " + round);
+        round++;
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        
+        roundwinner = playRound(humanSelection, computerSelection);
+
+        if(roundwinner == "human"){
+            humanScore++;
+        }else if (roundwinner == "computer"){
+            computerScore++;
+        }else{
+            roundwinner = "no winner"
+        }
+
+        console.log("Winner of this round: " + roundwinner);
+
+    }
+
+
+    console.log("Final scores\nHuman: " + humanScore + " Computer: " + computerScore);
+
+}
+
+
+
+playGame();
