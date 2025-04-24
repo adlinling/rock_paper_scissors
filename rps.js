@@ -25,8 +25,6 @@ function getComputerChoice(){
 
 function getHumanChoice(){
 
-   
-    
     let input = prompt("Enter your choice");
 
     console.log("Player entered: " + input);
@@ -36,17 +34,13 @@ function getHumanChoice(){
 }
 
 
-//console.log(getComputerChoice());
-//console.log("Player choice: " + getHumanChoice());
-
-
 function playRound(humanChoice, computerChoice){
 
     let playerchoice = humanChoice.toUpperCase();
     let winner = "no winner";
 
-    console.log("Player choice:" + playerchoice)
-    console.log("Computer choice:" + computerChoice)
+    //console.log("Player choice:" + playerchoice)
+    //console.log("Computer choice:" + computerChoice)
 
     if(computerChoice == "ROCK"){
 
@@ -87,7 +81,6 @@ function playRound(humanChoice, computerChoice){
         }
         
     }
-
     //console.log("Scores\nHuman: " + humanScore + " Computer: " + computerScore);
     //console.log("Winner: " + winner);
     return winner;
@@ -107,12 +100,19 @@ function playGame(){
     while (round <= maxrounds) {
 
         console.log("Round: " + round);
-        round++;
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
         
-        roundwinner = playRound(humanSelection, computerSelection);
+
+        let humanSelection = getHumanChoice().toUpperCase();
+        let computerSelection = getComputerChoice();
+        
+        console.log("Player choice:" + humanSelection)
+        console.log("Computer choice:" + computerSelection)
+
+        if(humanSelection !== computerSelection){
+            roundwinner = playRound(humanSelection, computerSelection);
+            round++;
+        }
+
 
         if(roundwinner == "human"){
             humanScore++;
