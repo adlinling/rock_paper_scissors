@@ -123,9 +123,6 @@ function playGame(){
 
             round++;
         }
-
-
-
  
     }
 
