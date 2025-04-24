@@ -139,6 +139,3 @@ function playGame(){
 
 }
 
-
-
-playGame();
