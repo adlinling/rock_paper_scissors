@@ -108,7 +108,7 @@ function playGame(){
         console.log("Computer choice: " + computerSelection)
 
         if(humanSelection !== computerSelection){
-            
+
             roundwinner = playRound(humanSelection, computerSelection);
 
             if(roundwinner == "human"){
@@ -119,7 +119,7 @@ function playGame(){
                 roundwinner = "no winner"
             }
 
-            console.log("Winner of Round " + round +": " + roundwinner);
+            console.log("Winner of Round " + round +": " + roundwinner + "\n\n");
 
             round++;
         }
@@ -130,7 +130,15 @@ function playGame(){
     }
 
 
+    if(humanScore > computerScore){
+        console.log("You win!");
+    }else{
+        console.log("You lost!");
+    }
+
     console.log("Final scores\nHuman: " + humanScore + " Computer: " + computerScore);
+
+
 
 }
 
