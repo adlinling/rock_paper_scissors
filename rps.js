@@ -101,29 +101,32 @@ function playGame(){
 
         console.log("Round: " + round);
         
-
         let humanSelection = getHumanChoice().toUpperCase();
         let computerSelection = getComputerChoice();
         
-        console.log("Player choice:" + humanSelection)
-        console.log("Computer choice:" + computerSelection)
+        console.log("Player choice: " + humanSelection)
+        console.log("Computer choice: " + computerSelection)
 
         if(humanSelection !== computerSelection){
+            
             roundwinner = playRound(humanSelection, computerSelection);
+
+            if(roundwinner == "human"){
+                humanScore++;
+            }else if (roundwinner == "computer"){
+                computerScore++;
+            }else{
+                roundwinner = "no winner"
+            }
+
+            console.log("Winner of Round " + round +": " + roundwinner);
+
             round++;
         }
 
 
-        if(roundwinner == "human"){
-            humanScore++;
-        }else if (roundwinner == "computer"){
-            computerScore++;
-        }else{
-            roundwinner = "no winner"
-        }
 
-        console.log("Winner of this round: " + roundwinner);
-
+ 
     }
 
 
