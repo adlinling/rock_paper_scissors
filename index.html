@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="rps.js?v=0.1"></script>
+    <script src="rps.js?v=0.2"></script>
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
@@ -20,6 +20,9 @@ Human Score:
 
 Computer Score:
 <div id="computerscore">0</div>
+
+
+<div id="info">Make your selection</div>
 
 
 <div id="choices">
@@ -40,7 +43,7 @@ btn.addEventListener("click", (event) => {
 
     let playerchoice = event.target.id;
     let computerchoice = getComputerChoice();
-    //console.log(playerchoice);
+    
     console.log(playRound(playerchoice, computerchoice));
 });
 
