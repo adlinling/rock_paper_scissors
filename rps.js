@@ -23,15 +23,7 @@ function getComputerChoice(){
 
 
 
-function getHumanChoice(){
 
-    let input = prompt("Enter your choice");
-
-    console.log("Player entered: " + input);
-   
-    return input;
-    
-}
 
 
 function playRound(humanChoice, computerChoice){
@@ -91,6 +83,10 @@ function playRound(humanChoice, computerChoice){
 function playGame(){
 
     const maxrounds = 5;
+
+    //let humanscore = document.querySelection("#humanscore");
+
+
     let round = 1;
 
     let humanScore = 0;
