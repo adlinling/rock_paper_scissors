@@ -17,7 +17,10 @@
 
  
 
-<div id="scores" style="display:flex;flex-direction:column;align-items: center;border:1px rgb(55, 169, 55) solid;">
+<div id="scores" style="display:flex;flex-direction:column;align-items: center;border:0px rgb(55, 169, 55) solid;">
+
+<p>First to reach 5 points wins</p>
+
 Human Score:
 <div id="humanscore">0</div>
 
@@ -28,22 +31,22 @@ Computer Score:
 
 
 
-<div id="info" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px rgb(146, 129, 5) solid;height:120px;">
+<div id="info" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border:0px rgb(146, 129, 5) solid;height:120px;">
 </div>
 
-<div id="reset" style="display:flex;flex-direction:column;align-items: center;border:1px rgb(179, 24, 125) solid;">
+<div id="reset" style="display:flex;flex-direction:column;align-items: center;padding:20px 0px;border:0px rgb(179, 24, 125) solid;">
 </div>
 
 
 
-<div id="choices" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border: 1px red solid;padding:20px 30px 20px;">
+<div id="choices" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border: 0px red solid;padding:20px 30px 20px;">
 
     <div id="rounddiv" style="display:flex;flex-direction:column;align-items: center;">
         Round: <span id="round">1</span>
         Make your selection    
     </div>
     
-    <div id="choicebuttons" style="display:flex;flex-direction:row;justify-content: center;gap:6px;padding:4px;border: 1px blue solid;width:20%;">
+    <div id="choicebuttons" style="display:flex;flex-direction:row;justify-content: center;gap:6px;padding:4px;border: 0px blue solid;width:20%;">
         <button id="rock">Rock</button>
         <button id="paper">Paper</button>
         <button id="scissors">Scissors</button>
@@ -57,7 +60,8 @@ Computer Score:
 
 <script>
 
-const maxrounds = 5;
+//const maxrounds = 5;
+const winningpoints = 5;
 
 let round = 1;
 
@@ -106,12 +110,8 @@ btn.addEventListener("click", (event) => {
 
 
 
-    if (round < maxrounds) {
-
-        round++;
-            
-    }else{
-
+    if (humanScore == winningpoints || computerScore == winningpoints) {
+       
         roundinfo.innerHTML = "Game Over";
 
         if(humanScore > computerScore){
@@ -149,6 +149,11 @@ btn.addEventListener("click", (event) => {
 
         })
 
+  
+            
+    }else{
+
+        round++;
     }
 
     roundinfo.innerHTML = round;
