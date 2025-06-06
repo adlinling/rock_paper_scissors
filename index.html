@@ -13,7 +13,8 @@
 
 
 Round:
-<div id="round">1</div>
+<div id="round">1</div>   
+
 
 Human Score:
 <div id="humanscore">0</div>
@@ -24,6 +25,7 @@ Computer Score:
 
 <div id="info">Make your selection</div>
 
+<div id="reset"></div>
 
 <div id="choices">
 <button id="rock">Rock</button>
@@ -34,23 +36,114 @@ Computer Score:
 
 
 <script>
+
+const maxrounds = 5;
+
+let round = 1;
+
+let humanScore = 0;
+let computerScore = 0;
+let roundwinner;
+
+let humanSelection;
+let computerchoice;
     
 
 const btn = document.querySelector("#choices");
+const infobox = document.querySelector("#info");
+const roundinfo = document.querySelector("#round");
+const rounddiv = document.querySelector("#rounddiv");
+const humanscoreinfo = document.querySelector("#humanscore");
+const computerscoreinfo = document.querySelector("#computerscore");
+const resetdiv = document.querySelector("#reset");
 
 
 btn.addEventListener("click", (event) => {
 
-    let playerchoice = event.target.id;
-    let computerchoice = getComputerChoice();
+
+
+    console.log("Round: " + round);
+        
+    humanSelection = event.target.id;
+    computerSelection = getComputerChoice();
+
+    console.log("Player choice: " + humanSelection)
+    console.log("Computer choice: " + computerSelection)
     
-    console.log(playRound(playerchoice, computerchoice));
+    roundwinner = playRound(humanSelection, computerSelection);
+
+    if(roundwinner == "human"){
+        humanScore++;
+    }else if (roundwinner == "computer"){
+        computerScore++;
+    }else{
+        roundwinner = "no winner"
+    }
+
+    console.log("Winner of Round " + round +": " + roundwinner + "\n\n");
+
+    infobox.innerHTML += "<br>Winner of Round " + round +": " + roundwinner;
+
+
+
+    if (round < maxrounds) {
+
+        round++;
+            
+
+    }else{
+
+        roundinfo.innerHTML = "Game Over";
+
+        if(humanScore > computerScore){
+            infobox.innerHTML += "<br>You won the game!";
+        }else if(humanScore < computerScore){
+            infobox.innerHTML += "<br>You lost the game!";
+        }else{
+            infobox.innerHTML += "<br>It's a tie!";
+        }
+        
+        resetdiv.innerHTML = "<button id='newgame'>Start New Game</button>";
+        btn.innerHTML = "";
+
+        newgame = document.querySelector("#newgame");
+        
+        newgame.addEventListener("click", (event) => {
+
+            console.log("starting new game");
+
+            resetdiv.innerHTML = "";
+            infobox.innerHTML = "Make your selection";
+            
+            btn.innerHTML = '<button id="rock">Rock</button><button id="paper">Paper</button><button id="scissors">Scissors</button>';
+
+            round = 1;
+            humanScore = 0;
+            computerScore = 0;
+
+            
+            roundinfo.innerHTML = round;
+            humanscoreinfo.innerHTML = humanScore;
+            computerscoreinfo.innerHTML = computerScore;
+
+        })
+
+    }
+
+    roundinfo.innerHTML = round;
+    humanscoreinfo.innerHTML = humanScore;
+    computerscoreinfo.innerHTML = computerScore;
+
+
+    
 });
 
 
 
-</script>
+
+
 
 </script>
+
 </body>
 </html>

@@ -97,7 +97,6 @@ function playGame(){
 
     //let humanscore = document.querySelection("#humanscore");
 
-
     let round = 1;
 
     let humanScore = 0;
