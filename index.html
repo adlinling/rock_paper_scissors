@@ -3,35 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="rps.js?v=0.2"></script>
+    <script src="rps.js?v=0.3"></script>
     <title>Rock Paper Scissors Game</title>
 </head>
 <body>
 
+
+<div id="title" style="display:flex;justify-content:center;border:0px blue solid;">
 <h1><a href="https://github.com/adlinling/rock_paper_scissors" target="_blank">Rock Paper Scissors Game</a></h1>
+</div>
 
 
 
-Round:
-<div id="round">1</div>   
+ 
 
-
+<div id="scores" style="display:flex;flex-direction:column;align-items: center;border:1px rgb(55, 169, 55) solid;">
 Human Score:
 <div id="humanscore">0</div>
 
 Computer Score:
 <div id="computerscore">0</div>
-
-
-<div id="info">Make your selection</div>
-
-<div id="reset"></div>
-
-<div id="choices">
-<button id="rock">Rock</button>
-<button id="paper">Paper</button>
-<button id="scissors">Scissors</button>
 </div>
+
+
+
+
+<div id="info" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px rgb(146, 129, 5) solid;height:120px;">
+</div>
+
+<div id="reset" style="display:flex;flex-direction:column;align-items: center;border:1px rgb(179, 24, 125) solid;">
+</div>
+
+
+
+<div id="choices" style="display:flex;flex-direction:column;justify-content:center;align-items:center;border: 1px red solid;padding:20px 30px 20px;">
+
+    <div id="rounddiv" style="display:flex;flex-direction:column;align-items: center;">
+        Round: <span id="round">1</span>
+        Make your selection    
+    </div>
+    
+    <div id="choicebuttons" style="display:flex;flex-direction:row;justify-content: center;gap:6px;padding:4px;border: 1px blue solid;width:20%;">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
+    </div>
+
+</div>
+
+
 
 
 
@@ -49,7 +69,7 @@ let humanSelection;
 let computerchoice;
     
 
-const btn = document.querySelector("#choices");
+const btn = document.querySelector("#choicebuttons");
 const infobox = document.querySelector("#info");
 const roundinfo = document.querySelector("#round");
 const rounddiv = document.querySelector("#rounddiv");
@@ -90,7 +110,6 @@ btn.addEventListener("click", (event) => {
 
         round++;
             
-
     }else{
 
         roundinfo.innerHTML = "Game Over";
@@ -104,18 +123,20 @@ btn.addEventListener("click", (event) => {
         }
         
         resetdiv.innerHTML = "<button id='newgame'>Start New Game</button>";
-        btn.innerHTML = "";
+        btn.style.visibility = "hidden";
+        rounddiv.style.visibility = "hidden";
 
         newgame = document.querySelector("#newgame");
         
         newgame.addEventListener("click", (event) => {
 
-            console.log("starting new game");
+            console.log("Starting new game");
 
             resetdiv.innerHTML = "";
-            infobox.innerHTML = "Make your selection";
+            infobox.innerHTML = "";
             
-            btn.innerHTML = '<button id="rock">Rock</button><button id="paper">Paper</button><button id="scissors">Scissors</button>';
+            btn.style.visibility = "visible";
+            rounddiv.style.visibility = "visible";
 
             round = 1;
             humanScore = 0;

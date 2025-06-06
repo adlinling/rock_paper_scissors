@@ -34,21 +34,23 @@ function playRound(humanChoice, computerChoice){
     const infobox = document.querySelector("#info");
 
     //console.log("Player choice:" + playerchoice)
+    infobox.innerHTML = "Player choice: " + playerchoice + "<br>";
     //console.log("Computer choice:" + computerChoice)
+    infobox.innerHTML += "Computer choice: " + computerChoice + "<br><br>";
 
     if(computerChoice == "ROCK"){
 
         if(playerchoice == "PAPER"){
             console.log("You win!  Paper beats rock.");
-            infobox.innerHTML = "You win!  Paper beats rock.";
+            infobox.innerHTML += "You win!  Paper beats rock.";
             winner = "human";
         }else if(playerchoice == "SCISSORS"){
             console.log("You lose!  Rock beats scissors.");
-            infobox.innerHTML = "You lose!  Rock beats scissors.";
+            infobox.innerHTML += "You lose!  Rock beats scissors.";
             winner = "computer";
         }else{
             console.log("Both of you chose rock");
-            infobox.innerHTML = "Both of you chose rock";
+            infobox.innerHTML += "Both of you chose rock";
         }
     }
 
@@ -56,15 +58,15 @@ function playRound(humanChoice, computerChoice){
 
         if(playerchoice == "SCISSORS"){
             console.log("You win!  Scissors beats paper.");
-            infobox.innerHTML = "You win!  Scissors beats paper.";
+            infobox.innerHTML += "You win!  Scissors beats paper.";
             winner = "human";
         }else if(playerchoice == "ROCK"){
             console.log("You lose!  Paper beats rock.");
-            infobox.innerHTML = "You lose!  Paper beats rock.";
+            infobox.innerHTML += "You lose!  Paper beats rock.";
             winner = "computer";
         }else{
             console.log("Both of you chose paper");
-            infobox.innerHTML = "Both of you chose paper";
+            infobox.innerHTML += "Both of you chose paper";
         }
     }
 
@@ -72,15 +74,15 @@ function playRound(humanChoice, computerChoice){
 
         if(playerchoice == "ROCK"){
             console.log("You win! Rock beats scissors.");
-            infobox.innerHTML = "You win! Rock beats scissors.";
+            infobox.innerHTML += "You win! Rock beats scissors.";
             winner = "human";
         }else if(playerchoice == "PAPER"){
             console.log("You lose!  Scissors beats paper.");
-            infobox.innerHTML = "You lose!  Scissors beats paper.";
+            infobox.innerHTML += "You lose!  Scissors beats paper.";
             winner = "computer";
         }else{
             console.log("Both of you chose scissors");
-            infobox.innerHTML = "Both of you chose scissors";
+            infobox.innerHTML += "Both of you chose scissors";
         }
         
     }
